@@ -1,5 +1,6 @@
 import { Average } from "./average.ts";
 import { FileAccess } from "./file_access.ts";
+import { NumberSource } from "./NumberSource.ts";
 
 function die() {
   console.log(`usage: deno demo.ts mean|median|mode FILE`);
@@ -13,7 +14,7 @@ if (Deno.args.length < 2) {
 const stat = Deno.args[0];
 const file = Deno.args[1];
 
-const fileAccess: FileAccess = new FileAccess(file);
+const fileAccess: NumberSource = new FileAccess(file);
 const average: Average = new Average(fileAccess);
 
 switch (stat) {
